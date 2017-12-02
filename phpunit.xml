@@ -5,9 +5,6 @@
     </testsuite>
   </testsuites>
   <filter>
-    <blacklist>
-      <directory suffix=".php">Tests/</directory>
-    </blacklist>
     <whitelist processUncoveredFilesFromWhitelist="true">
       <directory suffix=".php">Domain/</directory>
     </whitelist>
