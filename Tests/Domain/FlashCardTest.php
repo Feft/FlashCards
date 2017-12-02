@@ -13,4 +13,16 @@ class FlashCardTest extends TestCase
         $obj = new FlashCard();
         $this->assertInstanceOf(FlashCard::class, $obj);
     }
+
+    public function testSetterFlashCardFields()
+    {
+        $fc = new FlashCard();
+        $q = "Polska";
+        $a = "Poland";
+        $level = 1;
+        $fc->setFlashCars($q, $a, $level);
+        $this->assertEquals($q,$fc->getQuestion());
+        $this->assertEquals($a,$fc->getAnswer());
+        $this->assertEquals($level,$fc->getDifficultyLevel());
+    }
 }
