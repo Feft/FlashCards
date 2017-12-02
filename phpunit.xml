@@ -5,8 +5,11 @@
     </testsuite>
   </testsuites>
   <filter>
-    <whitelist processUncoveredFilesFromWhitelist="true">
+    <blacklist>
       <directory suffix=".php">Tests/</directory>
+    </blacklist>
+    <whitelist processUncoveredFilesFromWhitelist="true">
+      <directory suffix=".php">Domain/</directory>
     </whitelist>
   </filter>
 </phpunit>
