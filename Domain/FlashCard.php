@@ -22,7 +22,14 @@ class FlashCard
      */
     private $difficultyLevel;
 
-    public function setFlashCars($question, $answer, $level)
+    /**
+     * Set flash cards properties.
+     *
+     * @param string $question
+     * @param string $answer
+     * @param int $level difficulty level
+     */
+    public function setFlashCardsData(string $question, string $answer, int $level)
     {
         $this->question = $question;
         $this->answer = $answer;

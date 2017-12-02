@@ -20,7 +20,7 @@ class FlashCardTest extends TestCase
         $q = "Polska";
         $a = "Poland";
         $level = 1;
-        $fc->setFlashCars($q, $a, $level);
+        $fc->setFlashCardsData($q, $a, $level);
         $this->assertEquals($q,$fc->getQuestion());
         $this->assertEquals($a,$fc->getAnswer());
         $this->assertEquals($level,$fc->getDifficultyLevel());
