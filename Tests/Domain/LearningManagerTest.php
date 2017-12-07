@@ -38,8 +38,14 @@ class LearningManagerTest extends TestCase
         $array1 = [0, 1, 2, 3];
         $lm->addCardsToLearningBox($array1);
         $lm->shuffleCards();
-        # if shuffled function array_intersect_assoc should return empty array
-        $this->assertEquals(0, count(array_intersect_assoc($array1, $lm->getLearningBox())));
+
+        if (count($array1) < 2) {
+            $this->assertTrue(true);
+        } else {
+            # array_intersect_assoc returns identical elements from both arrays:
+            # keys and values are used to comparison
+            $this->assertNotEquals(count($array1), count(array_intersect_assoc($array1, $lm->getLearningBox())));
+        }
     }
 
 }

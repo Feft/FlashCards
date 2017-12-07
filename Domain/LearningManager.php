@@ -43,13 +43,20 @@ class LearningManager implements LearningManagerInterface
      */
     public function shuffleCards()
     {
-        $i = 0;
-        do {
-            $array = $this->learningBox;
-            shuffle($this->learningBox);
-            $i++;
-        } while (count(array_intersect_assoc($array, $this->learningBox)) !== 0 || $i < 5);
+        # if array size is 0 or 1 exit from function,
+        # because it is not possible to change the order this array
+        if (count($this->learningBox) < 2) {
+            return;
+        }
 
+        # copy of array
+        $array = $this->learningBox;
+        shuffle($this->learningBox);
+        # if arrays is identical move first element to the end
+        if (count(array_intersect_assoc($array, $this->learningBox)) !== 0) {
+            $element = array_shift($this->learningBox);
+            array_push($this->learningBox, $element);
+        }
     }
 
     /**
