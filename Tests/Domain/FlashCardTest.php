@@ -1,8 +1,6 @@
 <?php
 namespace Tests\Domain;
 
-include_once 'autoload.php';
-
 use Domain\FlashCard;
 use PHPUnit\Framework\TestCase;
 

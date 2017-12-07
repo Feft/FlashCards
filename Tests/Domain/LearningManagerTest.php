@@ -1,8 +1,6 @@
 <?php
 namespace Tests\Domain;
 
-include_once "autoload.php";
-
 use Domain\LearningManager;
 use Interfaces\LearningManagerInterface;
 use PHPUnit\Framework\TestCase;
