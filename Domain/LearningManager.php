@@ -53,7 +53,7 @@ class LearningManager implements LearningManagerInterface
         $array = $this->learningBox;
         shuffle($this->learningBox);
         # if arrays is identical move first element to the end
-        if (count(array_intersect_assoc($array, $this->learningBox)) !== 0) {
+        if ($array === $this->learningBox) {
             $element = array_shift($this->learningBox);
             array_push($this->learningBox, $element);
         }

@@ -30,25 +30,24 @@ class LearningManagerTest extends TestCase
     public function testShuffleWhenUsedAtLeastTwoElements()
     {
         $lm = new LearningManager();
-        $array1 = [14,15,16,17,18];
+        $array1 = [14, 15, 16];
         $lm->addCardsToLearningBox($array1);
         $lm->shuffleCards();
+        $array2 = [14, 15, 16];
+        $lm->addCardsToLearningBox($array2);
+        $lm->shuffleCards();
 
-        # array_intersect_assoc returns identical elements from both arrays:
-        # keys and values are used to comparison
-        $this->assertNotEquals(count($array1), count(array_intersect_assoc($array1, $lm->getLearningBox())));
+        $this->assertNotEquals($array1 + $array2, $lm->getLearningBox());
     }
 
     public function testShuffleWhenUsedTwoElements()
     {
         $lm = new LearningManager();
-        $array1 = [14,15];
+        $array1 = [14, 15];
         $lm->addCardsToLearningBox($array1);
         $lm->shuffleCards();
 
-        # array_intersect_assoc returns identical elements from both arrays:
-        # keys and values are used to comparison
-        $this->assertNotEquals(count($array1), count(array_intersect_assoc($array1, $lm->getLearningBox())));
+        $this->assertNotEquals($array1, $lm->getLearningBox());
     }
 
     public function testShuffleWhenUsedLessThanTwoElements()
@@ -59,7 +58,7 @@ class LearningManagerTest extends TestCase
         $lm->shuffleCards();
         # is not possible to change the order of array
         # so arrays are identical
-        $this->assertEquals(count($array1), count(array_intersect_assoc($array1, $lm->getLearningBox())));
+        $this->assertEquals($array1, $lm->getLearningBox());
     }
 
 }
