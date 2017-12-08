@@ -51,8 +51,11 @@ class LearningManager implements LearningManagerInterface
 
         # copy of array
         $array = $this->learningBox;
+
         shuffle($this->learningBox);
         # if arrays is identical move first element to the end
+        # because when array is small is possible that shuffle php function
+        # doesn't change elements order and hand made order changing is needed
         if ($array === $this->learningBox) {
             $element = array_shift($this->learningBox);
             array_push($this->learningBox, $element);

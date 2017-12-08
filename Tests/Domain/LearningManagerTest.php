@@ -33,6 +33,8 @@ class LearningManagerTest extends TestCase
         $array1 = [14, 15, 16];
         $lm->addCardsToLearningBox($array1);
         $lm->shuffleCards();
+        # when array is small is possible that shuffle php function doesn't change elements order
+        # and hand made order changing is needed
         $array2 = [14, 15, 16];
         $lm->addCardsToLearningBox($array2);
         $lm->shuffleCards();
