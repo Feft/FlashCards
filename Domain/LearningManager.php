@@ -26,7 +26,7 @@ class LearningManager implements LearningManagerInterface
     private $learned;
 
     /**
-     * @var ShuffleInterface
+     * @var ShuffleInterface class to shuffle cards
      */
     private $shuffleService;
 
