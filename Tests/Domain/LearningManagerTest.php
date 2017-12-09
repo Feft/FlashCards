@@ -7,6 +7,7 @@ use Domain\LearningManager;
 use Interfaces\LearningManagerInterface;
 use PHPUnit\Framework\TestCase;
 use Services\ShuffleCardService;
+use Tests\FlashCardsProvider;
 
 class LearningManagerTest extends TestCase
 {
@@ -27,7 +28,6 @@ class LearningManagerTest extends TestCase
         $collection2 = $this->getFlashCards(4);
         $lm->addCardsToLearningBox($collection2);
         $this->assertEquals($collection1->count() + $collection2->count(), $lm->countLearningBox());
-
     }
 
     public function testShuffleWhenUsedAtLeastTwoElements()
@@ -44,27 +44,6 @@ class LearningManagerTest extends TestCase
         $lm->shuffleCards();
 
         $this->assertNotEquals($collection1->getArray() + $collection2->getArray(), $lm->getLearningBox()->getArray());
-    }
-
-    public function testShuffleWhenUsedTwoElements()
-    {
-        $lm = new LearningManager(new ShuffleCardService());
-        $collection1 = $this->getFlashCards(2);
-        $lm->addCardsToLearningBox($collection1);
-        $lm->shuffleCards();
-
-        $this->assertNotEquals($collection1->getArray(), $lm->getLearningBox()->getArray());
-    }
-
-    public function testShuffleWhenUsedLessThanTwoElements()
-    {
-        $lm = new LearningManager(new ShuffleCardService());
-        $collection1 = $this->getFlashCards(1);
-        $lm->addCardsToLearningBox($collection1);
-        $lm->shuffleCards();
-        # is not possible to change the order of array
-        # so arrays are identical
-        $this->assertEquals($collection1->getArray(), $lm->getLearningBox()->getArray());
     }
 
     public function testDecreaseLearningBoxWhenMoveCardToLearned()
@@ -98,13 +77,7 @@ class LearningManagerTest extends TestCase
      */
     private function getFlashCards(int $amount): FlashCardsCollection
     {
-        $collection = new FlashCardsCollection();
-        for ($i = 0; $i < $amount; $i++) {
-            $fc = new FlashCard();
-            $fc->setFlashCardsData("q" . ($i + 1), "a" . ($i + 1), $i);
-            $collection->addFlashCard($fc);
-        }
-        return $collection;
+        return FlashCardsProvider::getFlashCards($amount);
     }
 
 }
