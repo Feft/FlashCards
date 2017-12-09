@@ -18,6 +18,8 @@
   <filter>
     <whitelist processUncoveredFilesFromWhitelist="true">
       <directory suffix=".php">Domain/</directory>
+      <directory suffix=".php">Services/</directory>
+      <directory suffix=".php">Interfaces/</directory>
     </whitelist>
   </filter>
 </phpunit>
