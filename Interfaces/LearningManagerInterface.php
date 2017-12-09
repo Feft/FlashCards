@@ -3,6 +3,7 @@
 namespace Interfaces;
 
 use Domain\FlashCard;
+use Domain\FlashCardsCollection;
 
 /**
  * LearningManager Interface
@@ -17,11 +18,11 @@ interface LearningManagerInterface
     /**
      * Add cards to the learning box.
      *
-     * @param $cards array Cards to learning
+     * @param $cards FlashCardsCollection Cards to learning
      *
      * @return bool
      */
-    public function addCardsToLearningBox(array $cards): bool;
+    public function addCardsToLearningBox(FlashCardsCollection $cards): bool;
 
     /**
      * Shuffle cards in the learning box.
