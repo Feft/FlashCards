@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: piotr
- * Date: 09.12.17
- * Time: 14:45
- */
 namespace Services;
 
 use Domain\FlashCardsCollection;
@@ -20,7 +14,7 @@ class ShuffleCardService implements ShuffleInterface
      *
      * @param FlashCardsCollection $collection
      * @author PP
-     * @return mixed|void
+     * @return void
      */
     public function shuffle(FlashCardsCollection $collection)
     {

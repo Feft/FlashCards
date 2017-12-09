@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: piotr
- * Date: 09.12.17
- * Time: 15:05
- */
 namespace Interfaces;
 
 use Domain\FlashCardsCollection;

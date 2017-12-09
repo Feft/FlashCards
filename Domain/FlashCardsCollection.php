@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: piotr
- * Date: 07.12.17
- * Time: 19:24
- */
+
 namespace Domain;
 
 /**
