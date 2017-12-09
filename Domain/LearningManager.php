@@ -15,13 +15,20 @@ use Interfaces\LearningManagerInterface;
 class LearningManager implements LearningManagerInterface
 {
     /**
-     * @var FlashCardsCollection
+     * @var FlashCardsCollection cards to learn
      */
     private $learningBox;
+
+    /**
+     * @var FlashCardsCollection learned cards
+     */
+    private $learned;
+
 
     public function __construct()
     {
         $this->learningBox = new FlashCardsCollection();
+        $this->learned = new FlashCardsCollection();
     }
 
     /**
@@ -87,6 +94,7 @@ class LearningManager implements LearningManagerInterface
      */
     public function moveCardToLearnedBox(FlashCard $card): bool
     {
+        $this->learned->addFlashCard($card);
         return true;
     }
 
@@ -101,5 +109,16 @@ class LearningManager implements LearningManagerInterface
     public function getLearningBox()
     {
         return $this->learningBox;
+    }
+
+    /**
+     * Count how much cards are learned.
+     *
+     * @author PP
+     * @return int
+     */
+    public function countLearned(): int
+    {
+        return $this->learned->count();
     }
 }

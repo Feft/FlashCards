@@ -1,8 +1,6 @@
 <?php
 namespace Tests\Domain;
 
-//include "vendor/autoload.php";
-
 use Domain\FlashCard;
 use Domain\FlashCardsCollection;
 use Domain\LearningManager;
@@ -66,6 +64,28 @@ class LearningManagerTest extends TestCase
         # is not possible to change the order of array
         # so arrays are identical
         $this->assertEquals($collection1->getArray(), $lm->getLearningBox()->getArray());
+    }
+
+    public function testDecreaseLearningBoxWhenMoveCardToLearned()
+    {
+        $amountOfCards = 6;
+        $lm = new LearningManager();
+        $collection1 = $this->getFlashCards($amountOfCards);
+        $lm->addCardsToLearningBox($collection1);
+        $elementToLearn = $lm->getCard();
+        $this->assertEquals($amountOfCards - 1, $lm->countLearningBox());
+        $lm->moveCardToLearnedBox($elementToLearn);
+        $this->assertEquals(1, $lm->countLearned());
+    }
+
+    /**
+     * @author PP
+     */
+    public function testThrowWhenGetCardFromEmptyLearningBox()
+    {
+        $this->expectException(\LogicException::class);
+        $lm = new LearningManager();
+        $lm->getCard();
     }
 
     /**
