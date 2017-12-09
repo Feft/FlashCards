@@ -6,19 +6,20 @@ use Domain\FlashCardsCollection;
 use Domain\LearningManager;
 use Interfaces\LearningManagerInterface;
 use PHPUnit\Framework\TestCase;
+use Services\ShuffleCardService;
 
 class LearningManagerTest extends TestCase
 {
     public function testIfClassExists()
     {
-        $learningManager = new LearningManager();
+        $learningManager = new LearningManager(new ShuffleCardService());
         $this->assertInstanceOf(LearningManager::class, $learningManager);
         $this->assertInstanceOf(LearningManagerInterface::class, $learningManager);
     }
 
     public function testAddingCardsToLearningBox()
     {
-        $lm = new LearningManager();
+        $lm = new LearningManager(new ShuffleCardService());
         $collection1 = $this->getFlashCards(3);
         $lm->addCardsToLearningBox($collection1);
         $this->assertEquals($collection1->count(), $lm->countLearningBox());
@@ -31,7 +32,7 @@ class LearningManagerTest extends TestCase
 
     public function testShuffleWhenUsedAtLeastTwoElements()
     {
-        $lm = new LearningManager();
+        $lm = new LearningManager(new ShuffleCardService());
         $collection1 = $this->getFlashCards(3);
         $lm->addCardsToLearningBox($collection1);
         $lm->shuffleCards();
@@ -47,7 +48,7 @@ class LearningManagerTest extends TestCase
 
     public function testShuffleWhenUsedTwoElements()
     {
-        $lm = new LearningManager();
+        $lm = new LearningManager(new ShuffleCardService());
         $collection1 = $this->getFlashCards(2);
         $lm->addCardsToLearningBox($collection1);
         $lm->shuffleCards();
@@ -57,7 +58,7 @@ class LearningManagerTest extends TestCase
 
     public function testShuffleWhenUsedLessThanTwoElements()
     {
-        $lm = new LearningManager();
+        $lm = new LearningManager(new ShuffleCardService());
         $collection1 = $this->getFlashCards(1);
         $lm->addCardsToLearningBox($collection1);
         $lm->shuffleCards();
@@ -69,7 +70,7 @@ class LearningManagerTest extends TestCase
     public function testDecreaseLearningBoxWhenMoveCardToLearned()
     {
         $amountOfCards = 6;
-        $lm = new LearningManager();
+        $lm = new LearningManager(new ShuffleCardService());
         $collection1 = $this->getFlashCards($amountOfCards);
         $lm->addCardsToLearningBox($collection1);
         $elementToLearn = $lm->getCard();
@@ -84,7 +85,7 @@ class LearningManagerTest extends TestCase
     public function testThrowWhenGetCardFromEmptyLearningBox()
     {
         $this->expectException(\LogicException::class);
-        $lm = new LearningManager();
+        $lm = new LearningManager(new ShuffleCardService());
         $lm->getCard();
     }
 

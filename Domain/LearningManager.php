@@ -3,7 +3,7 @@
 namespace Domain;
 
 use Interfaces\LearningManagerInterface;
-use Services\ShuffleCardService;
+use Interfaces\ShuffleInterface;
 
 /**
  * Class LearningManager.
@@ -25,11 +25,17 @@ class LearningManager implements LearningManagerInterface
      */
     private $learned;
 
+    /**
+     * @var ShuffleInterface
+     */
+    private $shuffleService;
 
-    public function __construct()
+
+    public function __construct(ShuffleInterface $shuffle)
     {
         $this->learningBox = new FlashCardsCollection();
         $this->learned = new FlashCardsCollection();
+        $this->shuffleService = $shuffle;
     }
 
     /**
@@ -53,8 +59,7 @@ class LearningManager implements LearningManagerInterface
      */
     public function shuffleCards()
     {
-        $shuffleService = new ShuffleCardService();
-        $shuffleService->shuffle($this->learningBox);
+        $this->shuffleService->shuffle($this->learningBox);
     }
 
     /**

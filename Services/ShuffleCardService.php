@@ -8,17 +8,19 @@
 namespace Services;
 
 use Domain\FlashCardsCollection;
+use Interfaces\ShuffleInterface;
 
 /**
  * Class to shuffle cards collection
  */
-class ShuffleCardService
+class ShuffleCardService implements ShuffleInterface
 {
     /**
-     * Shuffle cards in the learning box.
+     * @inheritdoc
      *
-     * @param FlashCardsCollection $collection Cards to shuffle
+     * @param FlashCardsCollection $collection
      * @author PP
+     * @return mixed|void
      */
     public function shuffle(FlashCardsCollection $collection)
     {
