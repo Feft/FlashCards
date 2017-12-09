@@ -1,6 +1,10 @@
 <?php
 namespace Tests\Domain;
 
+//include "vendor/autoload.php";
+
+use Domain\FlashCard;
+use Domain\FlashCardsCollection;
 use Domain\LearningManager;
 use Interfaces\LearningManagerInterface;
 use PHPUnit\Framework\TestCase;
@@ -17,51 +21,69 @@ class LearningManagerTest extends TestCase
     public function testAddingCardsToLearningBox()
     {
         $lm = new LearningManager();
-        $array1 = [0, 1, 2];
-        $lm->addCardsToLearningBox($array1);
-        $this->assertEquals(count($array1), $lm->countLearningBox());
+        $collection1 = $this->getFlashCards(3);
+        $lm->addCardsToLearningBox($collection1);
+        $this->assertEquals($collection1->count(), $lm->countLearningBox());
 
-        $array2 = [0, 1, 2, 3, 4];
-        $lm->addCardsToLearningBox($array2);
-        $this->assertEquals(count($array1) + count($array2), $lm->countLearningBox());
+        $collection2 = $this->getFlashCards(4);
+        $lm->addCardsToLearningBox($collection2);
+        $this->assertEquals($collection1->count() + $collection2->count(), $lm->countLearningBox());
 
     }
 
     public function testShuffleWhenUsedAtLeastTwoElements()
     {
         $lm = new LearningManager();
-        $array1 = [14, 15, 16];
-        $lm->addCardsToLearningBox($array1);
+        $collection1 = $this->getFlashCards(3);
+        $lm->addCardsToLearningBox($collection1);
         $lm->shuffleCards();
         # sometimes (eg. when array is small) is possible that shuffle php function
         # doesn't change elements order
         # and hand made order changing is needed
-        $array2 = [14, 15, 16];
-        $lm->addCardsToLearningBox($array2);
+        $collection2 = $this->getFlashCards(3);
+        $lm->addCardsToLearningBox($collection2);
         $lm->shuffleCards();
 
-        $this->assertNotEquals($array1 + $array2, $lm->getLearningBox());
+        $this->assertNotEquals($collection1->getArray() + $collection2->getArray(), $lm->getLearningBox()->getArray());
     }
 
     public function testShuffleWhenUsedTwoElements()
     {
         $lm = new LearningManager();
-        $array1 = [14, 15];
-        $lm->addCardsToLearningBox($array1);
+        $collection1 = $this->getFlashCards(2);
+        $lm->addCardsToLearningBox($collection1);
         $lm->shuffleCards();
 
-        $this->assertNotEquals($array1, $lm->getLearningBox());
+        $this->assertNotEquals($collection1->getArray(), $lm->getLearningBox()->getArray());
     }
 
     public function testShuffleWhenUsedLessThanTwoElements()
     {
         $lm = new LearningManager();
-        $array1 = [1];
-        $lm->addCardsToLearningBox($array1);
+        $collection1 = $this->getFlashCards(1);
+        $lm->addCardsToLearningBox($collection1);
         $lm->shuffleCards();
         # is not possible to change the order of array
         # so arrays are identical
-        $this->assertEquals($array1, $lm->getLearningBox());
+        $this->assertEquals($collection1->getArray(), $lm->getLearningBox()->getArray());
+    }
+
+    /**
+     * Prepare collection of cards.
+     *
+     * @param int $amount how many cards is needed
+     * @author PP
+     * @return FlashCardsCollection
+     */
+    private function getFlashCards(int $amount): FlashCardsCollection
+    {
+        $collection = new FlashCardsCollection();
+        for ($i = 0; $i < $amount; $i++) {
+            $fc = new FlashCard();
+            $fc->setFlashCardsData("q" . ($i + 1), "a" . ($i + 1), $i);
+            $collection->addFlashCard($fc);
+        }
+        return $collection;
     }
 
 }

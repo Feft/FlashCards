@@ -15,25 +15,27 @@ use Interfaces\LearningManagerInterface;
 class LearningManager implements LearningManagerInterface
 {
     /**
-     * @var array
+     * @var FlashCardsCollection
      */
     private $learningBox;
 
     public function __construct()
     {
-        $this->learningBox = [];
+        $this->learningBox = new FlashCardsCollection();
     }
 
     /**
      * Add cards to the learning box.
      *
-     * @param $cards array Cards to learning
+     * @param $cards FlashCardsCollection Cards to learning
      *
      * @return bool
      */
-    public function addCardsToLearningBox(array $cards): bool
+    public function addCardsToLearningBox(FlashCardsCollection $cards): bool
     {
-        $this->learningBox = array_merge($this->learningBox, $cards);
+        foreach ($cards as $card) {
+            $this->learningBox->addFlashCard($card);
+        }
 
         return true;
     }
@@ -45,20 +47,20 @@ class LearningManager implements LearningManagerInterface
     {
         # if array size is 0 or 1 exit from function,
         # because it is not possible to change the order this array
-        if (count($this->learningBox) < 2) {
+        if ($this->learningBox->count() < 2) {
             return;
         }
 
         # copy of array
-        $array = $this->learningBox;
+        $array = $this->learningBox->getArray();
 
-        shuffle($this->learningBox);
+        $this->learningBox->shuffle();
         # if arrays is identical move first element to the end
         # because when array is small is possible that shuffle php function
         # doesn't change elements order and hand made order changing is needed
-        if ($array === $this->learningBox) {
-            $element = array_shift($this->learningBox);
-            array_push($this->learningBox, $element);
+        if ($array === $this->learningBox->getArray()) {
+            $element = $this->learningBox->removeFirstFlashCard();
+            $this->learningBox->addFlashCard($element);
         }
     }
 
@@ -66,10 +68,14 @@ class LearningManager implements LearningManagerInterface
      * Get card from the learning box.
      *
      * @return FlashCard Card to learning.
+     * @throws \LogicException if no card in learning box
      */
     public function getCard(): FlashCard
     {
-        return new FlashCard();
+        if ($this->countLearningBox() > 0) {
+            return $this->learningBox->removeFirstFlashCard();
+        }
+        throw new \LogicException("No card in learning box");
     }
 
     /**
@@ -89,7 +95,7 @@ class LearningManager implements LearningManagerInterface
      */
     public function countLearningBox(): int
     {
-        return count($this->learningBox);
+        return $this->learningBox->count();
     }
 
     public function getLearningBox()

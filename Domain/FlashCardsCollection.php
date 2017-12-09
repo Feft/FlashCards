@@ -29,11 +29,35 @@ class FlashCardsCollection implements \Iterator
         $this->position = 0;
     }
 
+    /**
+     * Add new flash card to collection.
+     *
+     * @param FlashCard $fc flash card to add
+     * @author PP
+     */
     public function addFlashCard(FlashCard $fc)
     {
         $this->array[] = $fc;
     }
 
+    /**
+     * Remove first element from collection,
+     * eg. for learning process.
+     *
+     * @author PP
+     * @return FlashCard
+     */
+    public function removeFirstFlashCard()
+    {
+        return array_shift($this->array);
+    }
+
+    /**
+     * Count collection size.
+     *
+     * @author PP
+     * @return int
+     */
     public function getCollectionSize()
     {
         return count($this->array);
@@ -104,5 +128,26 @@ class FlashCardsCollection implements \Iterator
     public function count()
     {
         return count($this->array);
+    }
+
+    /**
+     * Return array of cards
+     *
+     * @author PP
+     * @return array
+     */
+    public function getArray()
+    {
+        return $this->array;
+    }
+
+    /**
+     * Shuffle collection.
+     *
+     * @author PP
+     */
+    public function shuffle()
+    {
+        shuffle($this->array);
     }
 }
