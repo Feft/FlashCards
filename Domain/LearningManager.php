@@ -3,6 +3,7 @@
 namespace Domain;
 
 use Interfaces\LearningManagerInterface;
+use Services\ShuffleCardService;
 
 /**
  * Class LearningManager.
@@ -52,23 +53,8 @@ class LearningManager implements LearningManagerInterface
      */
     public function shuffleCards()
     {
-        # if array size is 0 or 1 exit from function,
-        # because it is not possible to change the order this array
-        if ($this->learningBox->count() < 2) {
-            return;
-        }
-
-        # copy of array
-        $array = $this->learningBox->getArray();
-
-        $this->learningBox->shuffle();
-        # if arrays is identical move first element to the end
-        # because when array is small is possible that shuffle php function
-        # doesn't change elements order and hand made order changing is needed
-        if ($array === $this->learningBox->getArray()) {
-            $element = $this->learningBox->removeFirstFlashCard();
-            $this->learningBox->addFlashCard($element);
-        }
+        $shuffleService = new ShuffleCardService();
+        $shuffleService->shuffle($this->learningBox);
     }
 
     /**
