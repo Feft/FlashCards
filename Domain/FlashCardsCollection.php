@@ -94,4 +94,15 @@ class FlashCardsCollection implements \Iterator
     {
         $this->position = 0;
     }
+
+    /**
+     * Count collection size.
+     *
+     * @author PP
+     * @return int Collection size
+     */
+    public function count()
+    {
+        return count($this->array);
+    }
 }
