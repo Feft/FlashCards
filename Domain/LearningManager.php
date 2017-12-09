@@ -43,6 +43,7 @@ class LearningManager implements LearningManagerInterface
      *
      * @param $cards FlashCardsCollection Cards to learning
      *
+     * @author PP
      * @return bool
      */
     public function addCardsToLearningBox(FlashCardsCollection $cards): bool
@@ -56,6 +57,7 @@ class LearningManager implements LearningManagerInterface
 
     /**
      * Shuffle cards in the learning box.
+     * @author PP
      */
     public function shuffleCards()
     {
@@ -65,6 +67,7 @@ class LearningManager implements LearningManagerInterface
     /**
      * Get card from the learning box.
      *
+     * @author PP
      * @return FlashCard Card to learning.
      * @throws \LogicException if no card in learning box
      */
@@ -81,6 +84,7 @@ class LearningManager implements LearningManagerInterface
      *
      * @param $card FlashCard Card to move
      *
+     * @author PP
      * @return bool
      */
     public function moveCardToLearnedBox(FlashCard $card): bool
@@ -90,6 +94,9 @@ class LearningManager implements LearningManagerInterface
     }
 
     /**
+     * Count how much to learn.
+     *
+     * @author PP
      * @return int size of learning box
      */
     public function countLearningBox(): int
@@ -97,6 +104,12 @@ class LearningManager implements LearningManagerInterface
         return $this->learningBox->count();
     }
 
+    /**
+     * Get collection cards to learn.
+     *
+     * @author PP
+     * @return FlashCardsCollection
+     */
     public function getLearningBox()
     {
         return $this->learningBox;

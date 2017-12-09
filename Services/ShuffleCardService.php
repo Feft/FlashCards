@@ -5,7 +5,8 @@ use Domain\FlashCardsCollection;
 use Interfaces\ShuffleInterface;
 
 /**
- * Class to shuffle cards collection
+ * Class to shuffle cards collection.
+ * If arrays is identical move first element to the end of array.
  */
 class ShuffleCardService implements ShuffleInterface
 {
@@ -13,6 +14,7 @@ class ShuffleCardService implements ShuffleInterface
      * @inheritdoc
      *
      * @param FlashCardsCollection $collection
+     *
      * @author PP
      * @return void
      */
