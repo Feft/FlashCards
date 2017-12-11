@@ -1,7 +1,26 @@
 {
-    "require-dev": {
-        "phpunit/phpunit": "^6.5",
-        "phpunit/php-invoker": "^1.1",
-        "phpunit/dbunit": "^3.0"
+  "name": "feft/flash-cards",
+  "type": "library",
+  "description": "Learning and achievement test by using flash cards.",
+  "keywords": [
+    "flashcard"
+  ],
+  "homepage": "https://github.com/Feft/FlashCards",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Piotr Pikuła",
+      "email": "piotrpikula@gmail.com"
     }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "phpunit/phpunit": "^6.5",
+    "phpunit/php-invoker": "^1.1",
+    "phpunit/dbunit": "^3.0"
+  },
+  "autoload": {
+    "psr-0": {"Feft\\FlashCards": ""}
+  },
+  "target-dir": "Feft/FlashCards"
 }
