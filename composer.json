@@ -10,7 +10,9 @@
   "authors": [
     {
       "name": "Piotr Pikuła",
-      "email": "piotrpikula@gmail.com"
+      "email": "piotrpikula@gmail.com",
+      "homepage": "https://github.com/Feft",
+      "role": "Developer"
     }
   ],
   "require": {
