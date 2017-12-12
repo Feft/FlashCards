@@ -19,8 +19,8 @@ class FlashCardTest extends TestCase
         $a = "Poland";
         $level = 1;
         $fc->setFlashCardsData($q, $a, $level);
-        $this->assertEquals($q,$fc->getQuestion());
-        $this->assertEquals($a,$fc->getAnswer());
-        $this->assertEquals($level,$fc->getDifficultyLevel());
+        $this->assertEquals($q, $fc->getQuestion());
+        $this->assertEquals($a, $fc->getAnswer());
+        $this->assertEquals($level, $fc->getDifficultyLevel());
     }
 }

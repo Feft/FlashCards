@@ -79,5 +79,4 @@ class LearningManagerTest extends TestCase
     {
         return FlashCardsProvider::getFlashCards($amount);
     }
-
 }

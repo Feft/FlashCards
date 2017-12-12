@@ -59,6 +59,4 @@ class FlashCard
     {
         return $this->difficultyLevel;
     }
-
-
 }
