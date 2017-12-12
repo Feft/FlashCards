@@ -1,7 +1,6 @@
 <?php
 namespace Domain;
 
-
 use PHPUnit\Framework\TestCase;
 
 class FlashCardsCollectionTest extends TestCase
@@ -39,7 +38,6 @@ class FlashCardsCollectionTest extends TestCase
         $this->assertEquals("q: 2", $element->getQuestion());
         # expected empty collection
         $this->assertEquals(0, $collection->getCollectionSize());
-
     }
 
     /**
@@ -55,5 +53,4 @@ class FlashCardsCollectionTest extends TestCase
         $fc->setFlashCardsData("q: " . $text, "a: " . $text, 1);
         return $fc;
     }
-
 }
