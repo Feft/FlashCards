@@ -44,5 +44,4 @@ interface LearningManagerInterface
      * @return bool
      */
     public function moveCardToLearnedBox(FlashCard $card): bool;
-
 }
