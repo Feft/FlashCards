@@ -20,6 +20,7 @@
       <directory suffix=".php">Domain/</directory>
       <directory suffix=".php">Services/</directory>
       <directory suffix=".php">Interfaces/</directory>
+      <directory suffix=".php">Infrastructure/</directory>
     </whitelist>
   </filter>
 </phpunit>
