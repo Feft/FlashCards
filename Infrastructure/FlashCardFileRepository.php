@@ -17,14 +17,7 @@ class FlashCardFileRepository implements ObjectRepositoryInterface
 
     public function __construct()
     {
-        $this->storageFolder = 'Infrastructure/Storage';
-        $this->storageFileName = 'FlashCards.txt';
-        $this->storagePath = './'.$this->storageFolder.'/'.$this->storageFileName;
-
-
-        if($this->isFileStorageIsCreated() === false) {
-            $this->createFileStorage();
-        }
+        $this->configureFileStorage();
     }
 
     public function findAll():array
@@ -52,5 +45,10 @@ class FlashCardFileRepository implements ObjectRepositoryInterface
         $fileHandler = fopen($this->storagePath, 'w');
         chmod($this->storagePath,0755);
         fclose($fileHandler);
+    }
+
+    private function configureFileStorage()
+    {
+
     }
 }
