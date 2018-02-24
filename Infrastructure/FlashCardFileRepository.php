@@ -29,7 +29,7 @@ class FlashCardFileRepository implements ObjectRepositoryInterface
 
     public function findAll():array
     {
-        // $fileContent = file_get_contents($this->storageFileName);
+        $fileContent = file_get_contents($this->storagePath);
         // var_dump($fileContent);
 
         return [];
