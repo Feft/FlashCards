@@ -12,4 +12,11 @@ class FlashCardFileRepositoryTest extends TestCase
         $obj = new FlashCardFileRepository();
         $this->assertInstanceOf(FlashCardFileRepository::class, $obj);
     }
+
+    public function testFindAllReturnsArray()
+    {
+        $fileRepository = new FlashCardFileRepository();
+        $result = $fileRepository->findAll();
+        $this->assertTrue(is_array($result));
+    }
 }
