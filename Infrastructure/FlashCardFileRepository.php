@@ -42,13 +42,20 @@ class FlashCardFileRepository implements ObjectRepositoryInterface
             mkdir('./'.$this->storageFolder, 0777, true);
         }
 
-        $fileHandler = fopen($this->storagePath, 'w');
+        # create empty file
+        file_put_contents($this->storagePath, "", FILE_APPEND | LOCK_EX);
         chmod($this->storagePath,0755);
-        fclose($fileHandler);
     }
 
     private function configureFileStorage()
     {
+        $this->storageFolder = 'Infrastructure/Storage';
+        $this->storageFileName = 'FlashCards.txt';
+        $this->storagePath = './'.$this->storageFolder.'/'.$this->storageFileName;
 
+
+        if($this->isFileStorageIsCreated() === false) {
+            $this->createFileStorage();
+        }
     }
 }
