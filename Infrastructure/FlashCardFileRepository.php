@@ -7,13 +7,18 @@ use Interfaces\ObjectRepositoryInterface;
 class FlashCardFileRepository implements ObjectRepositoryInterface
 {
     /**
-     * @var string 
+     * @var string
      */
     private $storageFileName;
 
     private $storageFolder;
 
     private $storagePath;
+
+    /**
+     * Data stored in storage.
+     */
+    private $data;
 
     public function __construct()
     {
@@ -22,10 +27,13 @@ class FlashCardFileRepository implements ObjectRepositoryInterface
 
     public function findAll(): array
     {
-        $fileContent = file_get_contents($this->storagePath);
-        // var_dump($fileContent);
+        # temporary flashcards are in array structure (not as object)
+        if (empty($this->data)) {
+            $fileContent = file_get_contents($this->storagePath);
+            $this->data = json_decode($fileContent, true);
+        }
 
-        return [];
+        return $this->data;
     }
 
     private function isFileStorageIsCreated()
