@@ -13,9 +13,14 @@ class FlashCardFileRepository implements ObjectRepositoryInterface
 
     private $storagePath;
 
-    public function __construct()
+    /**
+     * @var FileStorageCreator
+     */
+    private $fileStorageCreator;
+
+    public function __construct(FileStorageCreator $fileStorageCreator)
     {
-        $this->configureFileStorage();
+        $this->configureFileStorage($fileStorageCreator);
     }
 
     public function findAll(): array
@@ -29,10 +34,9 @@ class FlashCardFileRepository implements ObjectRepositoryInterface
         return $this->data;
     }
 
-    private function configureFileStorage()
+    private function configureFileStorage(FileStorageCreator $fileStorageCreator)
     {
-        $storageCreator = new FileStorageCreator();
-        $storageCreator->configureFileStorage();
-        $this->storagePath = $storageCreator->getStoragePath();
+        $fileStorageCreator->configureFileStorage();
+        $this->storagePath = $fileStorageCreator->getStoragePath();
     }
 }
