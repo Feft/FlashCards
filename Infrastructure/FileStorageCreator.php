@@ -35,7 +35,7 @@ class FileStorageCreator
         return $this->storagePath;
     }
 
-    private function isFileStorageIsCreated()
+    protected function isFileStorageIsCreated()
     {
         if (file_exists($this->storagePath)) {
             return true;
