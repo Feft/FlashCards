@@ -18,7 +18,8 @@ class FileStorageCreator
 
     public function __construct()
     {
-        $this->storageFolder = 'Infrastructure/Storage';
+        echo __DIR__;
+        $this->storageFolder = 'src/Infrastructure/Storage';
         $this->storageFileName = 'FlashCards.txt';
         $this->storagePath = './' . $this->storageFolder . '/' . $this->storageFileName;
     }
