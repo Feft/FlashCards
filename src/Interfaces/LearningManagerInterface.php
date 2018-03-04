@@ -1,9 +1,9 @@
 <?php
 
-namespace Interfaces;
+namespace Feft\FlashCards\Interfaces;
 
-use Domain\FlashCard;
-use Domain\FlashCardsCollection;
+use Feft\FlashCards\Domain\FlashCard;
+use Feft\FlashCards\Domain\FlashCardsCollection;
 
 /**
  * LearningManager Interface

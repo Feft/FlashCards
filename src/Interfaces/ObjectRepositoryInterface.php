@@ -1,6 +1,6 @@
 <?php
 
-namespace Interfaces;
+namespace Feft\FlashCards\Interfaces;
 
 interface ObjectRepositoryInterface 
 {

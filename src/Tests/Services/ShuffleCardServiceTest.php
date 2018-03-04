@@ -1,10 +1,10 @@
 <?php
 
-namespace Services;
+namespace Feft\FlashCards\Services;
 
-use Domain\FlashCardsCollection;
+use Feft\FlashCards\Domain\FlashCardsCollection;
+use Feft\FlashCards\Tests\FlashCardsProvider;
 use PHPUnit\Framework\TestCase;
-use Tests\FlashCardsProvider;
 
 class ShuffleCardServiceTest extends TestCase
 {

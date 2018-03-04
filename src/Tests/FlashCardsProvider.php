@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests;
+namespace Feft\FlashCards\Tests;
 
-use Domain\FlashCard;
-use Domain\FlashCardsCollection;
+use Feft\FlashCards\Domain\FlashCard;
+use Feft\FlashCards\Domain\FlashCardsCollection;
 
 /**
  * Class FlashCardsProvider

@@ -1,8 +1,14 @@
 <?php
-namespace Tests\Domain;
+namespace Feft\FlashCards\Tests\Domain;
 
-use Domain\FlashCard;
+// echo "cholera "; 
+$vendorDir = dirname(dirname(__FILE__));
+$baseDir = dirname($vendorDir);
+
+var_dump($baseDir);
+
 use PHPUnit\Framework\TestCase;
+use Feft\FlashCards\Domain\FlashCard;
 
 class FlashCardTest extends TestCase
 {

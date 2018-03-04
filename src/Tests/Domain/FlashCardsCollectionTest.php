@@ -1,7 +1,9 @@
 <?php
-namespace Domain;
+namespace Feft\FlashCards\Test\Domain;
 
 use PHPUnit\Framework\TestCase;
+use Feft\FlashCards\Domain\FlashCardsCollection;
+use Feft\FlashCards\Domain\FlashCard;
 
 class FlashCardsCollectionTest extends TestCase
 {

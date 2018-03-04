@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain;
+namespace Feft\FlashCards\Domain;
 
 /**
  * Flash card class.

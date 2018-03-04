@@ -1,13 +1,13 @@
 <?php
-namespace Tests\Domain;
+namespace Feft\FlashCards\Tests\Domain;
 
-use Domain\FlashCard;
-use Domain\FlashCardsCollection;
-use Domain\LearningManager;
-use Interfaces\LearningManagerInterface;
+use Feft\FlashCards\Domain\FlashCard;
+use Feft\FlashCards\Domain\FlashCardsCollection;
+use Feft\FlashCards\Domain\LearningManager;
+use Feft\FlashCards\Interfaces\LearningManagerInterface;
 use PHPUnit\Framework\TestCase;
-use Services\ShuffleCardService;
-use Tests\FlashCardsProvider;
+use Feft\FlashCards\Services\ShuffleCardService;
+use Feft\FlashCards\Tests\FlashCardsProvider;
 
 class LearningManagerTest extends TestCase
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Domain;
+namespace Feft\FlashCards\Domain;
 
-use Interfaces\LearningManagerInterface;
-use Interfaces\ShuffleInterface;
+use Feft\FlashCards\Interfaces\LearningManagerInterface;
+use Feft\FlashCards\Interfaces\ShuffleInterface;
 
 /**
  * Class LearningManager.

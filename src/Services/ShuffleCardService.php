@@ -1,8 +1,8 @@
 <?php
-namespace Services;
+namespace Feft\FlashCards\Services;
 
-use Domain\FlashCardsCollection;
-use Interfaces\ShuffleInterface;
+use Feft\FlashCards\Domain\FlashCardsCollection;
+use Feft\FlashCards\Interfaces\ShuffleInterface;
 
 /**
  * Class to shuffle cards collection.

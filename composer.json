@@ -1,5 +1,5 @@
 {
-  "name": "feft/flashcards",
+  "name": "Feft/Flashcards",
   "type": "library",
   "description": "Learning and achievement test by using flash cards.",
   "keywords": [
@@ -22,7 +22,9 @@
     "phpunit/dbunit": "^3.0"
   },
   "autoload": {
-    "psr-0": {"Feft\\FlashCards": ""}
+    "psr-4": {
+      "Feft\\FlashCards\\": "src/"
+    }
   },
   "target-dir": "Feft/FlashCards"
 }

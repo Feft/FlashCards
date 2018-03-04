@@ -1,8 +1,8 @@
 <?php
 
-namespace Infrastructure;
+namespace Feft\FlashCards\Infrastructure;
 
-use Interfaces\ObjectRepositoryInterface;
+use Feft\FlashCards\Interfaces\ObjectRepositoryInterface;
 
 class FlashCardFileRepository implements ObjectRepositoryInterface
 {

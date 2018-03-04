@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Infrastruture;
+namespace Feft\FlashCards\Tests\Infrastruture;
 
 use PHPUnit\Framework\TestCase;
-use Infrastructure\FlashCardFileRepository;
-use Infrastructure\FileStorageCreator;
+use Feft\FlashCards\Infrastructure\FileStorageCreator;
+use Feft\FlashCards\Infrastructure\FlashCardFileRepository;
 
 class FlashCardFileRepositoryTest extends TestCase
 {
@@ -19,5 +19,12 @@ class FlashCardFileRepositoryTest extends TestCase
         $fileRepository = new FlashCardFileRepository(new FileStorageCreator());
         $result = $fileRepository->findAll();
         $this->assertTrue(is_array($result));
+    }
+
+    public function testFindAllReturnsArrayIfLocalStorageIsCreated()
+    {
+        // $mock = $this->getMockBuilder(FilesystemIterator::class)
+        //     ->setMethods(['isFileStorageIsCreated'])
+        //     ->getMock();
     }
 }

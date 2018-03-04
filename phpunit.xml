@@ -1,4 +1,4 @@
-<phpunit bootstrap="autoload.php"
+<phpunit bootstrap="../vendor/autoload.php"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.8/phpunit.xsd"
          backupGlobals="false"
@@ -12,15 +12,15 @@
 >
   <testsuites>
     <testsuite name="all">
-      <directory>Tests</directory>
+      <directory>src/Tests</directory>
     </testsuite>
   </testsuites>
   <filter>
     <whitelist processUncoveredFilesFromWhitelist="true">
-      <directory suffix=".php">Domain/</directory>
-      <directory suffix=".php">Services/</directory>
-      <directory suffix=".php">Interfaces/</directory>
-      <directory suffix=".php">Infrastructure/</directory>
+      <directory suffix=".php">src/Domain/</directory>
+      <directory suffix=".php">src/Services/</directory>
+      <directory suffix=".php">src/Interfaces/</directory>
+      <directory suffix=".php">src/Infrastructure/</directory>
     </whitelist>
   </filter>
 </phpunit>

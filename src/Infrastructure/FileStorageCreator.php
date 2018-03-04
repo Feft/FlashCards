@@ -1,6 +1,6 @@
 <?php
 
-namespace Infrastructure;
+namespace Feft\FlashCards\Infrastructure;
 
 /**
  * Prepare simple storage in file
