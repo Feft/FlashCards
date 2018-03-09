@@ -50,6 +50,19 @@ class FileStorageCreator
         }
 
         # temporary data
+        $flashCard = $this->getSampleData();
+
+        $jsonData = json_encode($flashCard);
+
+        file_put_contents($this->storagePath, $jsonData, LOCK_EX);
+        chmod($this->storagePath, 0755);
+    }
+
+    /**
+     * @return array sample data
+     */
+    private function getSampleData():array
+    {
         $flashCard[0]["question"] = "niegrzeczny (o dziecku)";
         $flashCard[0]["answer"] = "naughty";
         $flashCard[0]["difficultyLevel"] = 1;
@@ -90,9 +103,6 @@ class FileStorageCreator
         $flashCard[]["answer"] = "luggage";
         $flashCard[]["difficultyLevel"] = 1;
 
-        $jsonData = json_encode($flashCard);
-
-        file_put_contents($this->storagePath, $jsonData, LOCK_EX);
-        chmod($this->storagePath, 0755);
+        return $flashCard;
     }
 }
