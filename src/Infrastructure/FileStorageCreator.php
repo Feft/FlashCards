@@ -45,6 +45,11 @@ class FileStorageCreator
 
     private function createFileStorage()
     {
+        // if (file_exists('./' . $this->storageFolder)) {
+        //     unlink($this->storagePath);
+        //     rmdir($this->storageFolder);
+        // }
+
         if (!file_exists('./' . $this->storageFolder)) {
             mkdir('./' . $this->storageFolder, 0777, true);
         }
@@ -60,7 +65,7 @@ class FileStorageCreator
 
         $jsonData = json_encode($flashCard);
 
-        file_put_contents($this->storagePath, $jsonData, FILE_APPEND | LOCK_EX);
+        file_put_contents($this->storagePath, $jsonData, LOCK_EX);
         chmod($this->storagePath, 0755);
     }
 }

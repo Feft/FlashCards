@@ -26,7 +26,7 @@ class FlashCardFileRepository implements ObjectRepositoryInterface
     public function findAll(): array
     {
         # temporary flashcards are in array structure (not as object)
-        if (empty($this->data)) {
+        if (is_null($this->data)) {
             $fileContent = file_get_contents($this->storagePath);
             $this->data = json_decode($fileContent, true);
         }
