@@ -1,1 +1,1 @@
-[{"question":"niegrzeczny (o dziecku)","answer":"naughty","difficultyLevel":1},{"question":"niegrzeczny ch\u0142opiec","answer":"a naughty boy","difficultyLevel":1}]
+[{"question":"niegrzeczny (o dziecku)","answer":"naughty","difficultyLevel":1},{"question":"niegrzeczny ch\u0142opiec","answer":"a naughty boy","difficultyLevel":1},{"question":"atak serca"},{"answer":"heart attack"},{"difficultyLevel":1},{"question":"chirurg"},{"answer":"surgeon"},{"difficultyLevel":1}]

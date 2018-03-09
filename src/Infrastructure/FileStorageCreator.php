@@ -45,11 +45,6 @@ class FileStorageCreator
 
     private function createFileStorage()
     {
-        // if (file_exists('./' . $this->storageFolder)) {
-        //     unlink($this->storagePath);
-        //     rmdir($this->storageFolder);
-        // }
-
         if (!file_exists('./' . $this->storageFolder)) {
             mkdir('./' . $this->storageFolder, 0777, true);
         }
@@ -62,6 +57,38 @@ class FileStorageCreator
         $flashCard[1]["question"] = "niegrzeczny chłopiec";
         $flashCard[1]["answer"] = "a naughty boy";
         $flashCard[1]["difficultyLevel"] = 1;
+
+        $flashCard[]["question"] = "atak serca";
+        $flashCard[]["answer"] = "heart attack";
+        $flashCard[]["difficultyLevel"] = 1;
+
+        $flashCard[]["question"] = "chirurg";
+        $flashCard[]["answer"] = "surgeon";
+        $flashCard[]["difficultyLevel"] = 1;
+
+        $flashCard[]["question"] = "plac (np. w mieście)";
+        $flashCard[]["answer"] = "square";
+        $flashCard[]["difficultyLevel"] = 1;
+
+        $flashCard[]["question"] = "linijka";
+        $flashCard[]["answer"] = "ruler";
+        $flashCard[]["difficultyLevel"] = 1;
+
+        $flashCard[]["question"] = "rynek";
+        $flashCard[]["answer"] = "market";
+        $flashCard[]["difficultyLevel"] = 1;
+
+        $flashCard[]["question"] = "środek";
+        $flashCard[]["answer"] = "middle";
+        $flashCard[]["difficultyLevel"] = 1;
+
+        $flashCard[]["question"] = "ciężarówka";
+        $flashCard[]["answer"] = "truck";
+        $flashCard[]["difficultyLevel"] = 1;
+
+        $flashCard[]["question"] = "bagaż";
+        $flashCard[]["answer"] = "luggage";
+        $flashCard[]["difficultyLevel"] = 1;
 
         $jsonData = json_encode($flashCard);
 
