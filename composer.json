@@ -25,6 +25,5 @@
     "psr-4": {
       "Feft\\FlashCards\\": "src/"
     }
-  },
-  "target-dir": "Feft/FlashCards"
+  }
 }
