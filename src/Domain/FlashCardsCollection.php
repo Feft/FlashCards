@@ -122,7 +122,10 @@ class FlashCardsCollection implements \Iterator
      */
     public function count()
     {
-        return count($this->array);
+        if (is_array($this->array)) {
+            return count($this->array);
+        }
+        return 0;
     }
 
     /**
