@@ -3,4 +3,4 @@
 /vendor
 index.php
 .php_cs.cache
-./src/Infrastructure/Storage/
+src/Infrastructure/Storage
